@@ -50,7 +50,9 @@ export default function Task2() {
         setCardDataList(newCardList);
         setInputData(Data);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        alert("Post adding failed.")
+      });
   }
   return (
     <>
