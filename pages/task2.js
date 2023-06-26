@@ -32,7 +32,7 @@ export default function Task2() {
       body: inputData.body,
       userId: 1,
     };
-    
+
     let config = {
       method: "post",
       maxBodyLength: Infinity,
@@ -42,6 +42,7 @@ export default function Task2() {
       },
       data: data,
     };
+    setOpen(false);
     await axios
       .request(config)
       .then((response) => {
@@ -51,27 +52,31 @@ export default function Task2() {
         setInputData(Data);
       })
       .catch((error) => {
-        alert("Post adding failed.")
+        alert("Post adding failed.");
       });
   }
   return (
     <>
       <div className="bg-gray-300 grid place-items-center gap-y-4 p-10">
         <p className="md:text-xl">This is Second Task</p>
-        <button
-          onClick={() => setOpen((prev) => !prev)}
-          className="bg-blue-700 text-white px-4 py-2 rounded-xl"
-        >
-          Post Request
-        </button>
-        {open && (
-          <OpenInput
-            inputData={inputData}
-            setInputData={setInputData}
-            postCardData={postCardData}
-            cardDataList={cardDataList}
-          />
-        )}
+        <div className="relative">
+          <button
+            onClick={() => setOpen((prev) => !prev)}
+            className="bg-blue-700 text-white px-4 py-2 rounded-xl"
+          >
+            Post Request
+          </button>
+          {open && (
+            <div className="absolute">
+              <OpenInput
+                inputData={inputData}
+                setInputData={setInputData}
+                postCardData={postCardData}
+                cardDataList={cardDataList}
+              />
+            </div>
+          )}
+        </div>
         {cardDataList?.map((person, id) => (
           <div
             key={person.title}

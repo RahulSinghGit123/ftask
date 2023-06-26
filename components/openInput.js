@@ -4,7 +4,7 @@ export default function OpenInput(props) {
   const { inputData, setInputData, postCardData } = props;
   return (
     <>
-      <div className="bg-white grid gap-y-2 p-2 rounded-md">
+      <div className="bg-gray-300 grid gap-y-2 p-2 mt-2 -ml-20 rounded-md drop-shadow-lg border-2">
         <div className="grid">
           <label>Title</label>
           <input
@@ -14,7 +14,7 @@ export default function OpenInput(props) {
             onChange={(e) =>
               setInputData({ ...inputData, title: e.target.value })
             }
-            className="border rounded-md"
+            className="bg-gray-100 border rounded-md p-2"
           />
         </div>
         <div className="grid">
@@ -26,7 +26,7 @@ export default function OpenInput(props) {
             onChange={(e) =>
               setInputData({ ...inputData, body: e.target.value })
             }
-            className="border rounded-md"
+            className="bg-gray-100 border rounded-md p-2"
           />
         </div>
         <button
